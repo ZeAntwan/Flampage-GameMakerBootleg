@@ -3,8 +3,6 @@
 
 Singleton();
 
-stateDebug = true;
-
 // Game State
 // 0 = Main Menu
 // 1 = Game
@@ -12,6 +10,5 @@ stateDebug = true;
 // 3 = Game Over
 global.gameState = 0;
 
-global.rageState = 0;
-
+// Player Movement is diabled when isCinematic
 global.isCinematic = false;

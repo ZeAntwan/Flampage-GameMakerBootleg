@@ -469,7 +469,7 @@
             "visible": true
         }
     ],
-    "playbackSpeed": 15,
+    "playbackSpeed": 25,
     "playbackSpeedType": 0,
     "sepmasks": false,
     "swatchColours": null,

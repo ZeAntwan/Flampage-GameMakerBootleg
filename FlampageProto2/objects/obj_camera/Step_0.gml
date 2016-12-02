@@ -4,7 +4,7 @@
 var rate = 0.19;
 var moveCam = 10;
 var aimCam = cam_w;
-var marginCam = cam_w/3;
+var marginCam = 300;
 
 // If in Game state
 if (global.gameState != 0) {
@@ -17,8 +17,8 @@ if (global.gameState != 0) {
 				}
 				else if ((obj_player_1.isMoving && obj_player_1.isAiming) || (!obj_player_1.isMoving && obj_player_1.isAiming)) {
 				// If player is Moving and Aiming OR is Aiming Only
-					nextcam_x = (obj_player_1.x + clamp(((obj_player_1.haim*aimCam)),-cam_w+marginCam,cam_w-marginCam));
-					nextcam_y = (obj_player_1.y + clamp(((obj_player_1.vaim*aimCam)),-cam_h+marginCam,cam_h-marginCam));
+					nextcam_x = (obj_player_1.x + obj_player_1.haim*((cam_w/2)-marginCam));
+					nextcam_y = (obj_player_1.y + obj_player_1.vaim*((cam_h/2)-marginCam/2));
 				} 
 				else if (!obj_player_1.isMoving && !obj_player_1.isAiming) {
 				// If player is Idling
@@ -26,13 +26,22 @@ if (global.gameState != 0) {
 					nextcam_y = obj_player_1.y;
 				}
 	} else {
+	// Camera is Following anything else
 		nextcam_x = objFollow.x;
 		nextcam_y = objFollow.y;	
 	}
 }
 
-if (global.gameState == 4) {
+if (global.isCinematic) {
+	// Camera is Following anything else
+	nextcam_x = objFollow.x;
+	nextcam_y = objFollow.y;
+}
+
+if (global.rageState == 4) {
+
 	objFollow = obj_flan;
+	// Zooming in
 	var view_w = camera_get_view_width(view_camera[0]);
 	var view_h = camera_get_view_height(view_camera[0]);
 	newcam_w = lerp(view_w,cam_w*.5,0.01);
@@ -42,11 +51,9 @@ if (global.gameState == 4) {
 	nextcam_y -= (newcam_h - cam_h)/2; 
 }
 
-
-
 // Camera Lerp
 if (global.gameState != 0) {
-	// Clamping Next Camera to Room
+	// Clamping Next Camera Position to Room
 	nextcam_x = clamp(nextcam_x-cam_w/2,0,room_width-cam_w);
 	nextcam_y = clamp(nextcam_y-cam_h/2,0,room_height-cam_h);
 	x = lerp(x,nextcam_x,rate);

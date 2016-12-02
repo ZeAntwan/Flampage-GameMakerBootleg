@@ -53,12 +53,23 @@ if (global.gameState == 0) {
 	if (!audio_is_playing(snd_menu)) {
 		audio_play_sound(snd_menu,1,true);
 	}
+	global.isCinematic = false;
 } else if (global.gameState == 1) {
 	// Music
 	if (!audio_is_playing(snd_phase_1)) {
 		audio_play_sound(snd_phase_1,1,true);
 	}
-} else if (global.gameState == 4) {
-	
+}
+
+
+// Game Over Music Handle
+if (global.rageState == 4) {
+	if (audio_is_playing(snd_phase_1)) {
+		audio_stop_sound(snd_phase_1)
+	}
+	if (!audio_is_playing(snd_gameover)) {
+		audio_play_sound(snd_gameover,1,true);
+	}
+	global.isCinematic = true;
 }
 	

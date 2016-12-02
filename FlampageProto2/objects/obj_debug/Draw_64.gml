@@ -18,7 +18,7 @@ draw_text(xx,yy+140, "diraim_diff - " + string(obj_player_1.diraim_diff));
 draw_text(xx,yy+160, "sprspeed - " + string(obj_player_1.sprspeed));
 
 //Cam Debug
-//draw_text(xx,yy+200, "nextcam_x - " + string(obj_camera.nextcam_x));
+draw_text(xx,yy+200, "aimpoint - " + string(obj_player_1.aimpoint));
 //draw_text(xx,yy+220, "nextcam_y - " + string(obj_camera.nextcam_y));
 draw_text(xx,yy+240, "player x - " + string(obj_player_1.x));
 draw_text(xx,yy+260, "player y - " + string(obj_player_1.y));

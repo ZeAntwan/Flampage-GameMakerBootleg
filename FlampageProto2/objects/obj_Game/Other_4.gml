@@ -1,7 +1,16 @@
-/// @description Create Camera / Kill Music
+/// @description Create Camera / Kill Music / Reset Game
 
 // Kill Menu Music
 audio_stop_all();
+
+// Reset Game
+global.ammo = 300;
+
+// Flan Rage
+global.rageState = 0;
+
+
+// Set Camera
 
 // Set Viewport
 //Enable the use of views
