@@ -1,0 +1,190 @@
+/// @description 
+
+// Set Sprite Speed
+sprspeed = clamp((abs(haxis)+abs(vaxis)),0,1)
+image_speed = sprspeed;
+if (isAiming) {
+	diraim_diff = angle_difference(dirpoint,aimpoint);
+	if (diraim_diff>90 or diraim_diff <-90) {
+		image_speed = -sprspeed;
+	}
+}
+
+// Set Sprite
+
+draw_self();
+
+if (isMoving) {
+	if (isAiming) {	
+	
+// Moving AND Aiming //
+
+/*		if (dirAiming == 0) {
+			//Draw Right Moving
+			//draw_sprite(spr_player_run_r,image_index,x,y);
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_r,shootanim,x,y-25,1,1,aimpoint,c_white,1);
+			} else {
+				draw_sprite_ext(spr_player_aim_r,0,x,y-25,1,1,aimpoint,c_white,1);
+				shootanim = 0;
+			}
+		}
+		else if (dirAiming == 1) {
+			//Draw Bottom Moving
+			//draw_sprite(spr_player_run_b,image_index,x,y);
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite(spr_player_aim_b,shootanim,x,y);
+			} else {
+				draw_sprite(spr_player_aim_b,0,x,y);
+				shootanim = 0;
+			}
+		}
+		else if (dirAiming == 2) {
+			//Draw Left Moving
+			//draw_sprite(spr_player_run_l,image_index,x,y);
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,aimpoint-180,c_white,1);
+			} else {
+				draw_sprite_ext(spr_player_aim_l,0,x-3,y-25,1,1,aimpoint-180,c_white,1);
+				shootanim = 0;
+			}
+		}
+		else if (dirAiming == 3) {
+			//Draw Top Moving
+			//draw_sprite(spr_player_run_t,image_index,x,y);
+		}
+		
+		// Set Last Orientation based upon Aiming Direction
+		last_o = dirAiming;
+		
+	*/ }
+	else
+
+// Moving ONLY //
+	
+	{
+		if(dirMoving == 0) {
+			//Draw Right Moving
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_r,shootanim,x,y-25,1,1,0,c_white,1);
+			} else {
+				draw_sprite(spr_player_run_r_arm,image_index,x,y);
+				shootanim = 0;
+			}
+		}
+		else if (dirMoving == 1) {
+			//Draw Bottom Shoot Arm
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_b,shootanim,x,y,1,1,0,c_white,1);
+			} else {
+				draw_sprite(spr_player_run_b_arm,image_index,x,y);
+				shootanim = 0;
+			}
+		}
+		else if (dirMoving == 2) {
+			//Draw Left Moving
+			//draw_sprite(spr_player_run_l,image_index,x,y);
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,0,c_white,1);
+			} else {
+				draw_sprite(spr_player_run_l_arm,image_index,x,y);
+				shootanim = 0;
+			}
+		}
+		else if (dirMoving == 3) {
+			//Draw Top Moving
+			//draw_sprite(spr_player_run_t,image_index,x,y);
+		}
+		
+		// Set Last Orientation based upon Moving Direction
+		//last_o = dirMoving;
+	}
+} else {
+
+// Aiming ONLY //
+
+	if(isAiming) {	
+		if(dirAiming == 0) {
+			//Draw Right Moving
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_r)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_r,shootanim,x,y-25,1,1,aimpoint,c_white,1);
+			} else {
+				draw_sprite_ext(spr_player_aim_r,0,x,y-25,1,1,aimpoint,c_white,1);
+				shootanim = 0;
+			}
+		}
+		else if (dirAiming == 1) {
+			//Draw Bottom Moving
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_b)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite(spr_player_aim_b,shootanim,x,y);
+			} else {
+				draw_sprite(spr_player_aim_b,0,x,y);
+				shootanim = 0;
+			}		
+		}
+		else if (dirAiming == 2) {
+			//Draw Left Shoot Arm
+			if(isShooting) {
+				if (shootanim>sprite_get_number(spr_player_aim_l)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,aimpoint-180,c_white,1);
+			} else {
+				draw_sprite_ext(spr_player_aim_l,0,x,y-25,1,1,aimpoint-180,c_white,1);
+				shootanim = 0;
+			}
+		}
+		
+// Idleing Only	//
+
+	} else {
+		if (isShooting) {
+			if (last_o == 0)
+			{
+				if (shootanim>sprite_get_number(spr_player_aim_l)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_r,shootanim,x,y-25,1,1,0,c_white,1);
+			}
+			else if (last_o == 1)
+			{
+				if (shootanim>sprite_get_number(spr_player_aim_l)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_b,shootanim,x,y,1,1,0,c_white,1);
+			}
+			else if (last_o == 2)
+			{
+				if (shootanim>sprite_get_number(spr_player_aim_l)-1) shootanim = 0;
+				shootanim++;
+				draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,0,c_white,1);
+			}
+		} else {
+			draw_sprite(spr_player_idle_full,last_o,x,y);
+			shootanim = 0;		
+		}
+	}
+}
+
+///Draw Collision
+//draw_set_color(c_black);
+//draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,true);
+
+
+	
+/// DRAW AIM RETICLE
+range = 200;
+draw_arrow(x,y,x+(haim*range),y+(vaim*range),5)
