@@ -2,7 +2,7 @@
 
 // Set Sprite Speed
 if (!global.isCinematic) {
-	sprspeed = clamp((abs(haxis)+abs(vaxis)),0,1)
+	sprspeed = clamp((abs(obj_input.haxis)+abs(obj_input.vaxis)),0,1)
 	image_speed = sprspeed;
 	if (isAiming) {
 		diraim_diff = angle_difference(dirpoint,aimpoint);
@@ -16,7 +16,13 @@ if (!global.isCinematic) {
 
 draw_self();
 
-if(isAiming) var rot = aimpoint else var rot = 0;
+if(isAiming) {
+	var rot = aimpoint
+	//Draw Reticle
+	
+} else {
+	var rot = 0;
+}
 
 if (isShooting) {
 	if (shootanim>sprite_get_number(spr_player_aim_l)-1) shootanim = 0;
@@ -69,14 +75,3 @@ if (isShooting) {
 			}
 		}	
 }
-
-
-
-
-///Draw Collision
-//draw_set_color(c_black);
-//draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,true);
-
-/// DRAW AIM RETICLE
-var range = 200;
-draw_arrow(x,y,x+(haim*range),y+(vaim*range),5)

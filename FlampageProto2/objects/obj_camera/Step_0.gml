@@ -2,9 +2,10 @@
 
 //The interpolation rate
 var rate = 0.19;
-var moveCam = 10;
-var aimCam = cam_w;
-var marginCam = 300;
+//The view ahead of movement
+moveCam = 10;
+//The Border Margin when aiming
+marginCam = 300;
 
 // If in Game state
 if (global.gameState != 0) {
@@ -17,8 +18,8 @@ if (global.gameState != 0) {
 				}
 				else if ((obj_player_1.isMoving && obj_player_1.isAiming) || (!obj_player_1.isMoving && obj_player_1.isAiming)) {
 				// If player is Moving and Aiming OR is Aiming Only
-					nextcam_x = (obj_player_1.x + obj_player_1.haim*((cam_w/2)-marginCam));
-					nextcam_y = (obj_player_1.y + obj_player_1.vaim*((cam_h/2)-marginCam/2));
+					nextcam_x = (obj_player_1.x + obj_input.haim*((cam_w/2)-marginCam));
+					nextcam_y = (obj_player_1.y + obj_input.vaim*((cam_h/2)-marginCam/2));
 				} 
 				else if (!obj_player_1.isMoving && !obj_player_1.isAiming) {
 				// If player is Idling

@@ -13,5 +13,7 @@ else if (global.rageLevel >= 200 and global.rageLevel < 300) {
 }
 else if (global.rageLevel >=300) {
 	sprite_index = spr_flan_4_idle;
-	global.gameState = 4;
+	global.rageState = 4;
+	if(alarm[0] = -1) alarm = 3*room_speed;
+	global.isCinematic = true;
 }

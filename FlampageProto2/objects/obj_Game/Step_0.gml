@@ -2,12 +2,12 @@
 
 Singleton();
 
-//Debug Keys
-
+/// DEBUG
 rm_next = keyboard_check_pressed(ord("Y"));
 rm_prev = keyboard_check_pressed(ord("T"));
 cinematic = keyboard_check_pressed(ord("C"));
 
+// Debug Behavior
 if(rm_next) {
 	if (room != room_last) {
 		room_goto_next();
@@ -29,11 +29,11 @@ if(cinematic) {
 
 
 // Quit the game
-if (keyboard_check(vk_escape)) {
+if (obj_input.kEsc) {
 	game_end();
 }
 
-if (keyboard_check_pressed(ord("F"))) {
+if (obj_input.kFullscreen) {
 	if (!window_get_fullscreen()) {
 		window_set_fullscreen(true);
 	}
@@ -49,27 +49,23 @@ if (keyboard_check_pressed(ord("F"))) {
 // 2 = Pause
 // 3 = Game Over
 if (global.gameState == 0) {
-	//Music
-	if (!audio_is_playing(snd_menu)) {
-		audio_play_sound(snd_menu,1,true);
-	}
+
 	global.isCinematic = false;
 } else if (global.gameState == 1) {
-	// Music
-	if (!audio_is_playing(snd_phase_1)) {
-		audio_play_sound(snd_phase_1,1,true);
-	}
+
 }
 
-
+// Rage State Music Handle
+if (global.rageState == 2) {
+//	audio_sound_gain(snd[1], 1, 0);
+} else if (global.rageState == 3) {
+//	audio_sound_gain(snd[2], 1, 0);
+}
 // Game Over Music Handle
-if (global.rageState == 4) {
-	if (audio_is_playing(snd_phase_1)) {
-		audio_stop_sound(snd_phase_1)
-	}
+else if (global.rageState == 4) {
+	//audio_destroy_sync_group(sg);
 	if (!audio_is_playing(snd_gameover)) {
-		audio_play_sound(snd_gameover,1,true);
+//		audio_play_sound(snd_gameover,1,true);
 	}
-	global.isCinematic = true;
 }
 	

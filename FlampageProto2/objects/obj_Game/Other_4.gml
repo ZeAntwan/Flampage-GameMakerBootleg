@@ -1,7 +1,24 @@
-/// @description Create Camera / Kill Music / Reset Game
+/// @description Create Camera / Manage Music / Reset Game
 
-// Kill Menu Music
-audio_stop_all();
+// Manage Music
+if (global.gameState == 0) {
+	//Music
+	if (!audio_is_playing(snd_menu)) {
+		audio_play_sound(snd_menu,1,true);
+	}
+} else if (global.gameState == 1) {
+	// Music
+	sg = audio_create_sync_group(true);
+	snd[0] = audio_play_in_sync_group(sg, snd_phase_1);
+	//snd[1] = audio_play_in_sync_group(sg, snd_phase_2);
+	//snd[2] = audio_play_in_sync_group(sg, snd_phase_3);
+	//audio_sound_gain(snd[1], 0, 0);
+	//audio_sound_gain(snd[2], 0, 0);
+	if (!audio_sync_group_is_playing(sg)) {
+		audio_start_sync_group(sg);
+	}
+	//audio_play_sound(snd_phase_1,1,true);
+}
 
 // Reset Game
 global.ammo = 300;
