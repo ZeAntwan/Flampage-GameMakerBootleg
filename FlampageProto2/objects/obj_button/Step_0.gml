@@ -1,3 +1,9 @@
 /// @description Insert description here
-event_inherited();
-if loadup >10 room_goto_next();
+
+if (loadup > 0) {
+	loadup -= 1/(room_speed/2);
+}
+
+if (loadup >10) {
+	room_goto_next();
+}

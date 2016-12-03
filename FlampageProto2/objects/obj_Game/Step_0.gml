@@ -56,14 +56,19 @@ if (global.gameState == 0) {
 }
 
 // Rage State Music Handle
-if (global.rageState == 2) {
-//	audio_sound_gain(snd[1], 1, 0);
+if (global.rageState == 1) {
+	audio_sound_gain(p2,0,250);
+}
+else if (global.rageState == 2) {
+	audio_sound_gain(p2,1,250);
+	audio_sound_gain(p3,0,250);
 } else if (global.rageState == 3) {
-//	audio_sound_gain(snd[2], 1, 0);
+	audio_sound_gain(p3,1,250);
 }
 // Game Over Music Handle
 else if (global.rageState == 4) {
-	//audio_destroy_sync_group(sg);
+	audio_stop_sync_group(sg);
+	audio_destroy_sync_group(sg);
 	if (!audio_is_playing(snd_gameover)) {
 //		audio_play_sound(snd_gameover,1,true);
 	}

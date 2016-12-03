@@ -1,3 +1,4 @@
 /// @description Insert description here
-loadup++;
-with(other) instance_destroy();
+hp = 10;
+
+spd = 5;

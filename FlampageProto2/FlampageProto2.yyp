@@ -1348,6 +1348,63 @@
                 "resourcePath": "sounds\\snd_walk\\snd_walk.yy",
                 "resourceType": "GMSound"
             }
+        },
+        {
+            "Key": "92dc64cd-45b2-459b-9034-ed53974ad98c",
+            "Value": {
+                "id": "618395df-3c92-45f6-93d9-5f9c3c93c7b7",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\\obj_gourmand\\obj_gourmand.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "138b4181-dcda-4895-b92b-5a9fa0be7034",
+            "Value": {
+                "id": "c4fa0073-45e4-4e6e-9ad6-0ee608d12aa4",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\\obj_bullet_heal\\obj_bullet_heal.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "760a0290-af0a-4282-824f-b11375aa7e3a",
+            "Value": {
+                "id": "7180b04e-d25a-4a65-8e68-180440a5f334",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\scr_shoot\\scr_shoot.yy",
+                "resourceType": "GMScript"
+            }
         }
     ],
     "room_order": [
@@ -1356,7 +1413,8 @@
     ],
     "script_order": [
         "cfb43bc5-8dd0-4ef6-931b-3e9b7f9552ad",
-        "cab2af74-5cbf-472f-81e6-fb43e809c892"
+        "cab2af74-5cbf-472f-81e6-fb43e809c892",
+        "760a0290-af0a-4282-824f-b11375aa7e3a"
     ],
     "tutorial": ""
 }

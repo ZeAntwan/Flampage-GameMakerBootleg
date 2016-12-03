@@ -1,3 +1,3 @@
 /// @description Insert description here
-loadup++;
+hp--
 with(other) instance_destroy();
