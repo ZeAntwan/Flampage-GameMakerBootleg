@@ -1,4 +1,8 @@
 /// @description Insert description here
+
+// Avoid Global Rage to be over 300
+global.rageLevel = clamp(global.rageLevel,0,300);
+
 if (global.rageLevel <100) {
 	sprite_index = spr_flan_1_idle;
 	global.rageState = 1;

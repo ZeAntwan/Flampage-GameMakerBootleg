@@ -3,7 +3,8 @@
 var xx = 32;
 var yy = 32;
 
-
+draw_set_halign(fa_left);
+draw_set_valign(fa_left);
 draw_set_color(c_black);
 
 // FPS Debug
@@ -24,3 +25,4 @@ draw_text(xx,yy+240, "player x - " + string(obj_player_1.x));
 draw_text(xx,yy+260, "player y - " + string(obj_player_1.y));
 
 draw_text(xx,yy+320, "gameState - " + string(global.gameState));
+draw_text(xx,yy+340, "rageLevel - " + string(global.rageLevel));

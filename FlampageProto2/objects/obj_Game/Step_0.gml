@@ -58,19 +58,48 @@ if (global.gameState == 0) {
 // Rage State Music Handle
 if (global.rageState == 1) {
 	audio_sound_gain(p2,0,250);
+	// SFX Flan Rage Phase Up and Down
+	if (lastrage > global.rageState) {
+		audio_play_sound(snd_flan_down,1,0);
+	} else if (lastrage < global.rageState){
+		audio_play_sound(snd_flan_up,1,0);
+	}
+	lastrage = global.rageState;
 }
 else if (global.rageState == 2) {
 	audio_sound_gain(p2,1,250);
 	audio_sound_gain(p3,0,250);
+	// SFX Flan Rage Phase Up and Down
+	if (lastrage > global.rageState) {
+		audio_play_sound(snd_flan_down,1,0);
+	} else if (lastrage < global.rageState){
+		audio_play_sound(snd_flan_up,1,0);
+	}
+	lastrage = global.rageState;
+	
+
 } else if (global.rageState == 3) {
 	audio_sound_gain(p3,1,250);
+	// SFX Flan Rage Phase Up and Down
+	if (lastrage > global.rageState) {
+		audio_play_sound(snd_flan_down,1,0);
+	} else if (lastrage < global.rageState){
+		audio_play_sound(snd_flan_up,1,0);
+	}
+	lastrage = global.rageState;
 }
 // Game Over Music Handle
 else if (global.rageState == 4) {
-	audio_stop_sync_group(sg);
-	audio_destroy_sync_group(sg);
 	if (!audio_is_playing(snd_gameover)) {
 //		audio_play_sound(snd_gameover,1,true);
 	}
 }
-	
+
+// Ammo Limit
+global.ammo = clamp(global.ammo,0,100);
+global.chargeurs = clamp(global.chargeurs,0,3);
+
+if (global.ammo = 0 and global.chargeurs > 0) {
+	global.ammo = 100;
+	global.chargeurs--
+}

@@ -10,7 +10,13 @@ Singleton();
 // 3 = Game Over
 global.gameState = 0;
 
+// Rage State
 global.rageState = 0;
+
+lastrage = 1;
 
 // Player Movement is diabled when isCinematic
 global.isCinematic = false;
+
+// Main Menu helpers
+logo_anim = 0;
