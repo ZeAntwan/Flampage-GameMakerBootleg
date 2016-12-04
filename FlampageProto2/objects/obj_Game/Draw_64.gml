@@ -20,6 +20,9 @@ if (global.gameState != 0) {
 	draw_set_valign(fa_bottom)
 	draw_text(gw-25,gh-25,string(global.ammo));
 	
+// Rage Bar
+	var rage_radius = 30;
+	draw_pie(50 ,50 ,global.rageLevel, 300, c_red, 20, 1)
 } else {
 	
 }

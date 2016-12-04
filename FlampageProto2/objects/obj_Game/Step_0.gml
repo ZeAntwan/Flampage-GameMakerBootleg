@@ -93,6 +93,7 @@ else if (global.rageState == 4) {
 	if (!audio_is_playing(snd_gameover)) {
 //		audio_play_sound(snd_gameover,1,true);
 	}
+	audio_sound_gain(p1,0,250);
 }
 
 // Ammo Limit

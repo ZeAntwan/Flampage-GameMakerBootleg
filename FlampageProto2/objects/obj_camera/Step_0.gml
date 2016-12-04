@@ -48,8 +48,8 @@ if (global.rageState == 4) {
 	newcam_w = lerp(view_w,cam_w*.5,0.01);
 	newcam_h = lerp(view_h,cam_h*.5,0.01);
 	camera_set_view_size(view_camera[0],newcam_w,newcam_h);
-	shake_x += random_range(5,10);
-	shake_y += random_range(5,10);
+	shake_x = random_range(5,10);
+	shake_y = random_range(5,10);
 	nextcam_x -= (newcam_w - cam_w)/2;
 	nextcam_y -= (newcam_h - cam_h)/2; 
 }

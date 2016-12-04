@@ -1538,6 +1538,44 @@
                 "resourcePath": "sounds\\snd_flan_up\\snd_flan_up.yy",
                 "resourceType": "GMSound"
             }
+        },
+        {
+            "Key": "4d6eb897-427d-4232-b9eb-363e18de91fe",
+            "Value": {
+                "id": "eb2ff7ca-2398-4253-ad18-5d9264a8b348",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\scr_health_ring\\scr_health_ring.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7fda48a9-19db-4508-9d9b-9282214e0e21",
+            "Value": {
+                "id": "e1e029d6-d50b-476e-b481-7eb86346baae",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\\draw_pie\\draw_pie.yy",
+                "resourceType": "GMScript"
+            }
         }
     ],
     "room_order": [
@@ -1547,7 +1585,9 @@
     "script_order": [
         "cfb43bc5-8dd0-4ef6-931b-3e9b7f9552ad",
         "cab2af74-5cbf-472f-81e6-fb43e809c892",
-        "760a0290-af0a-4282-824f-b11375aa7e3a"
+        "760a0290-af0a-4282-824f-b11375aa7e3a",
+        "4d6eb897-427d-4232-b9eb-363e18de91fe",
+        "7fda48a9-19db-4508-9d9b-9282214e0e21"
     ],
     "tutorial": ""
 }

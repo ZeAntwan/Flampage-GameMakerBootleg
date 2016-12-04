@@ -8,7 +8,7 @@ if (global.gameState == 0) {
 	}
 } else if (global.gameState == 1) {
 	// Music
-	audio_play_sound(snd_phase_1,1,true);
+	p1 = audio_play_sound(snd_phase_1,1,true);
 	p2 = audio_play_sound(snd_phase_2,1,true);
 	audio_sound_gain(p2,0,0);
 	p3 = audio_play_sound(snd_phase_3,1,true);
