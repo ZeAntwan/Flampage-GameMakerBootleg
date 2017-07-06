@@ -1,7 +1,7 @@
 {
     "id": "1190b167-8cb7-4cde-9db5-44c88ac7c763",
     "modelName": "GMSprite",
-    "mvc": "1.1",
+    "mvc": "1.12",
     "name": "spr_flan_1_idle",
     "For3D": false,
     "HTile": false,
@@ -10,7 +10,7 @@
     "bbox_left": 157,
     "bbox_right": 732,
     "bbox_top": 155,
-    "bboxmode": 0,
+    "bboxmode": 2,
     "colkind": 2,
     "coltolerance": 0,
     "frames": [
@@ -565,6 +565,8 @@
             ]
         }
     ],
+    "gridX": 0,
+    "gridY": 0,
     "height": 900,
     "layers": [
         {
@@ -579,11 +581,13 @@
             "visible": true
         }
     ],
+    "origin": 4,
     "playbackSpeed": 25,
     "playbackSpeedType": 0,
     "sepmasks": false,
     "swatchColours": null,
-    "textureGroup": 0,
+    "swfPrecision": 0,
+    "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
     "type": 0,
     "width": 900,
     "xorig": 450,
