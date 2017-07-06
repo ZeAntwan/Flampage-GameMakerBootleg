@@ -9,3 +9,5 @@ text2 = "null";
 timer = 0;
 
 line = 0;
+
+global.waveLevel = 0;

@@ -18,7 +18,7 @@ if (global.gameState > 0 && global.gameState < 3) {
 	
 	// Health Bar
 	var _hp = clamp(ceil(obj_player_1.hp/5),0,6) 
-	draw_sprite_ext(spr_lifebar,_hp,gborder + 100, gborder+160,.6,.6,0,c_white,1);
+	draw_sprite_ext(spr_lifebar,_hp,gborder + 100, gborder+170,.6,.6,0,c_white,1);
 	
 	// Ammo Pak
 	draw_sprite_ext(spr_ammopak,global.chargeurs,gw-(205),gh-(70),.7,.7,0,c_white,1);
@@ -35,17 +35,35 @@ if (global.gameState > 0 && global.gameState < 3) {
 	draw_text(gw-90,gh-80,string(global.ammo));
 	
 	// Timer
+	draw_sprite_ext(spr_horloge,0,gw-110, gborder+80,1,1,0,c_white,1);
+	
 	if (global.minutes < 10) {
 		if (global.seconds < 10) {
-			draw_text(gw-90, gborder+40,"0" + string(floor(global.minutes)) + ":0" + string(floor(global.seconds)))
+			draw_text(gw-110, gborder+80,"0" + string(floor(global.minutes)) + ":0" + string(floor(global.seconds)))
 		} else {
-			draw_text(gw-90, gborder+40,"0" + string(floor(global.minutes)) + ":" + string(floor(global.seconds)))
+			draw_text(gw-110, gborder+80,"0" + string(floor(global.minutes)) + ":" + string(floor(global.seconds)))
 		}
 	//
 	} else {
 		draw_text(gw-90, gborder+40,string(floor(global.minutes)) + ":" + string(floor(global.seconds)))
 	}
 	
+	// Phase Showup
+
+	if (showPhase and timer>=5*room_speed) {
+		showPhase = false;
+		timer = 0;
+		vxPlayed = false;
+	} else if (showPhase) {
+		timer++;
+	}
+
+	if (global.waveLevel != lastWaveLevel or showPhase) {
+		draw_sprite_ext(spr_phase,global.waveLevel-1,gw/2,gh/2,1,1,0,c_white,1)
+		showPhase = true;
+	}
+
+	lastWaveLevel = global.waveLevel
 
 } else {
 	
@@ -54,3 +72,4 @@ if (global.gameState > 0 && global.gameState < 3) {
 if (global.rageState == 4) {
 	draw_sprite_ext(spr_gameover,0,gw/2,gh/2,.5,.5,0,c_white,1)
 }
+

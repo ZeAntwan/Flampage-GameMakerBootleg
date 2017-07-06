@@ -13,6 +13,10 @@ global.gameState = 0;
 global.rageState = 0;
 
 lastrage = 1;
+showPhase = false;
+lastWaveLevel = 0;
+timer = 0;
+vxPlayed = false;
 
 // Player Movement is diabled when isCinematic
 global.isCinematic = false;

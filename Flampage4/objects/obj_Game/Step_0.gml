@@ -112,6 +112,7 @@ else if (global.rageState == 2) {
 	}
 	lastrage = global.rageState;
 }
+
 // Game Over Music Handle
 else if (global.rageState == 4) {
 	global.gameState = 3;
@@ -119,6 +120,18 @@ else if (global.rageState == 4) {
 //		audio_play_sound(snd_gameover,1,true);
 	}
 	audio_sound_gain(p1,0,250);
+}
+
+// Audio Vx Phase Change
+if showPhase and !vxPlayed {
+	if (global.waveLevel == 1) {
+		audio_play_sound(snd_vx_phase_1,2,false);
+	} else if (global.waveLevel == 2) {
+		audio_play_sound(snd_vx_phase_2,2,false);
+	} else if (global.waveLevel == 3) {
+		audio_play_sound(snd_vx_phase_3,2,false);
+	}
+	vxPlayed = true;
 }
 
 // Ammo Limit
