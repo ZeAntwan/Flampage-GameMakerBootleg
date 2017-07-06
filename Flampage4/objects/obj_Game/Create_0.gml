@@ -16,3 +16,6 @@ lastrage = 1;
 
 // Player Movement is diabled when isCinematic
 global.isCinematic = false;
+
+// Font Color
+col = make_colour_rgb(90, 50, 35);

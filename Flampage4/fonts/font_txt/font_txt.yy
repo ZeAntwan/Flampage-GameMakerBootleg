@@ -11448,7 +11448,7 @@
             "y": 127
         }
     ],
-    "sampleText": null,
+    "sampleText": "test",
     "size": 50,
     "styleName": "Regular",
     "textureGroupId": "00000000-0000-0000-0000-000000000000"

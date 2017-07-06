@@ -16,7 +16,7 @@ if (distance_to_object(target) <= 20) {
 		attack_timer++
 	} else {
 		if (target = obj_flan) {
-			global.rageLevel += attack;
+			global.rageLevel += attack*5;
 		} else {
 			var _atk = attack
 			with(target) {

@@ -59,6 +59,12 @@ if (global.gameState == 0) {
 	
 } else if (global.gameState == 1) {
 
+	global.seconds += 1/room_speed;
+	if (global.seconds >= 60) {
+		global.minutes++;
+		global.seconds = 0;
+	}
+	
 } else if (global.gameState == 2) {
 
 } else if (global.gameState == 3) {
@@ -70,6 +76,9 @@ if (global.gameState == 0) {
 		pc2 = audio_play_sound(snd_cred2,1,true)
 	}
 }
+
+if (global.gameState != 1) {global.seconds = 0; global.minutes = 0};
+
 // Rage State Music Handle
 if (global.rageState == 1) {
 	audio_sound_gain(p2,0,250);

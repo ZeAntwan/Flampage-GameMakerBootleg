@@ -79,11 +79,7 @@ if (!global.isCinematic) {
 			sprite_index = spr_player_run_t;
 		}
 		last_o = dirAiming;
-		// Walking Audio
-		if (image_index == 0) {
-			var pas = audio_play_sound(snd_walk,1,false)
-			audio_sound_pitch(pas, random_range(.7,1.2));
-		}
+		
 	} else if (isMoving) {
 		if (dirMoving == 0) {
 			sprite_index = spr_player_run_r;
@@ -98,18 +94,25 @@ if (!global.isCinematic) {
 			sprite_index = spr_player_run_t;
 		}
 		last_o = dirMoving;
-		// Walking Audio
-		if (walk_help > 20) {
-			var pas = audio_play_sound(snd_walk,1,false)
-			audio_sound_pitch(pas, random_range(.7,1.2));
-			walk_help = 0
-		} else {
-			walk_help++
-		}
-	} else if(!isMoving) {
+		
+	} else if (!isMoving) {
 		if (isAiming) last_o = dirAiming;
 		image_index = last_o;
 		sprite_index = spr_player_idle;
+	}
+	
+	if (isMoving) {
+	// Walking Audio
+		if (floor(image_index) == 4 or floor(image_index) == 13) {
+			if (walk_help) {
+				var pas = audio_play_sound(snd_walk,1,false)
+				audio_sound_pitch(pas, random_range(.7,1.2));
+				walk_help = false;
+			}
+			
+		} else {
+			walk_help = true;
+		}
 	}
 
 	////////////////////////////////////////////////// COLLISIONS
@@ -143,14 +146,14 @@ if (!global.isCinematic) {
 	// SHOOTING
 	if (obj_input.kShoot) {
 		isShooting = true;
-		scr_shoot(obj_bullet,1,2);
+		scr_shoot(obj_bullet,1,shootrate);
 	}
 	else
 	{
 		isShooting = false;
 	}
 	if (obj_input.kDash) {
-		scr_shoot(obj_bullet_heal,1,2);
+		scr_shoot(obj_bullet_heal,1,shootrate);
 	}
 
 } else {
@@ -162,5 +165,5 @@ if (!global.isCinematic) {
 if (hp <= 0) {
 	global.isCinematic = true;
 	global.gameState = 3;
-	if(alarm[0] == -1) alarm[0] = 10*room_speed;
+	if(alarm[0] == -1) alarm[0] = 6*room_speed;
 }

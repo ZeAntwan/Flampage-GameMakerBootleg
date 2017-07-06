@@ -30,12 +30,12 @@ shootanim = 0;
 diraim_diff = 0;
 
 // Walk Sound help
-walk_help = 0;
+walk_help = true;
 
 // SET SHOOT
 //Tool variable
 shootchk = 0;
 // Shoot rate
-shootrate = 2;
+shootrate = 5;
 
-hp = 20;
+hp = 30;

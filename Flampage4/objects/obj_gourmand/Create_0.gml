@@ -4,9 +4,9 @@ hp = 10;
 target = obj_flan
 target_timer = 0;
 
-spd = 5;
+spd = 10;
 
-firerate = 5;
+firerate = 2;
 attack = 5;
 attack_timer = 0;
 
