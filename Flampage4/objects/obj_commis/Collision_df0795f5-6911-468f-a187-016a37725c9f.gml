@@ -1,5 +1,3 @@
 /// @description Insert description here
-hp--
-with(other) instance_destroy();
-
+event_inherited();
 target = obj_player_1

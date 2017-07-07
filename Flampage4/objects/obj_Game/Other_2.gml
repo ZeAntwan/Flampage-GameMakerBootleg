@@ -1,4 +1,8 @@
 /// @description Insert description here
+
+// No Cursor
+window_set_cursor(cr_none);
+
 //Set the port bounds of view 0 to 640x480
 view_set_wport(0, 1920);
 view_set_hport(0, 1080);

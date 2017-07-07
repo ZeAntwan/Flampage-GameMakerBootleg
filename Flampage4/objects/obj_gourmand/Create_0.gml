@@ -1,13 +1,8 @@
 /// @description Insert description here
+event_inherited();
+
 hp = 10;
-
-target = obj_flan
-target_timer = 0;
-
 spd = 10;
-
 firerate = 2;
 attack = 5;
-attack_timer = 0;
-
-attackMode = false;
+flan_atk = 5;

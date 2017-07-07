@@ -1,5 +1,10 @@
 /// @description Create Camera / Manage Music / Reset Game
 
+// Phase reset
+showPhase = false;
+lastWaveLevel = 0;
+vxPlayed = false;
+
 // Manage Music
 if (global.gameState == 0) {
 	// Menu Music
@@ -27,6 +32,9 @@ global.chargeurs = 1;
 // Flan Rage
 global.rageState = 0;
 
+// Timer Reset
+global.seconds = 0;
+global.minutes = 0;
 
 // Set Camera
 

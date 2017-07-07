@@ -80,42 +80,46 @@ if (global.gameState == 0) {
 if (global.gameState != 1) {global.seconds = 0; global.minutes = 0};
 
 // Rage State Music Handle
-if (global.rageState == 1) {
-	audio_sound_gain(p2,0,250);
-	// SFX Flan Rage Phase Up and Down
-	if (lastrage > global.rageState) {
-		audio_play_sound(snd_flan_down,1,0);
-	} else if (lastrage < global.rageState){
-		audio_play_sound(snd_flan_up,1,0);
+if (global.gameState == 1) {
+	if (global.rageState == 1) {
+		audio_sound_gain(p2,0,250);
+		// SFX Flan Rage Phase Up and Down
+		if (lastrage > global.rageState) {
+			audio_play_sound(snd_flan_down,1,0);
+		} else if (lastrage < global.rageState){
+			audio_play_sound(snd_flan_up,1,0);
+		}
+		lastrage = global.rageState;
 	}
-	lastrage = global.rageState;
-}
-else if (global.rageState == 2) {
-	audio_sound_gain(p2,1,250);
-	audio_sound_gain(p3,0,250);
-	// SFX Flan Rage Phase Up and Down
-	if (lastrage > global.rageState) {
-		audio_play_sound(snd_flan_down,1,0);
-	} else if (lastrage < global.rageState){
-		audio_play_sound(snd_flan_up,1,0);
-	}
-	lastrage = global.rageState;
+	else if (global.rageState == 2) {
+		audio_sound_gain(p2,1,250);
+		audio_sound_gain(p3,0,250);
+		// SFX Flan Rage Phase Up and Down
+		if (lastrage > global.rageState) {
+			audio_play_sound(snd_flan_down,1,0);
+		} else if (lastrage < global.rageState){
+			audio_play_sound(snd_flan_up,1,0);
+		}
+		lastrage = global.rageState;
 	
 
-} else if (global.rageState == 3) {
-	audio_sound_gain(p3,1,250);
-	// SFX Flan Rage Phase Up and Down
-	if (lastrage > global.rageState) {
-		audio_play_sound(snd_flan_down,1,0);
-	} else if (lastrage < global.rageState){
-		audio_play_sound(snd_flan_up,1,0);
+	} else if (global.rageState == 3) {
+		audio_sound_gain(p3,1,250);
+		// SFX Flan Rage Phase Up and Down
+		if (lastrage > global.rageState) {
+			audio_play_sound(snd_flan_down,1,0);
+		} else if (lastrage < global.rageState){
+			audio_play_sound(snd_flan_up,1,0);
+		}
+		lastrage = global.rageState;
 	}
-	lastrage = global.rageState;
-}
 
-// Game Over Music Handle
-else if (global.rageState == 4) {
-	global.gameState = 3;
+	// Game Over Music Handle
+	else if (global.rageState == 4) {
+		global.gameState = 3;
+	}
+}
+if (global.gameState = 3) {
 	if (!audio_is_playing(snd_gameover)) {
 //		audio_play_sound(snd_gameover,1,true);
 	}
@@ -123,7 +127,7 @@ else if (global.rageState == 4) {
 }
 
 // Audio Vx Phase Change
-if showPhase and !vxPlayed {
+if (showPhase and !vxPlayed) {
 	if (global.waveLevel == 1) {
 		audio_play_sound(snd_vx_phase_1,2,false);
 	} else if (global.waveLevel == 2) {

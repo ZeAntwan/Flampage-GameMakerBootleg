@@ -315,7 +315,7 @@
                     "id": "ee6676b0-10c7-4ae9-8fff-bd9d9ffa627f",
                     "modelName": "GMRInstance",
                     "mvc": "1.0",
-                    "ignore": false,
+                    "ignore": true,
                     "inheritItemSettings": false,
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,

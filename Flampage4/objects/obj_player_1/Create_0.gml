@@ -12,6 +12,13 @@ spd = 30;
 isMoving = false;
 isAiming = false;
 isShooting = false;
+isDashing = false;
+
+isAttacked = false;
+
+// Dash Help
+timeoutDash = 1.5*room_speed
+timerDash = 0;
 
 // SET LAST ORIETATION
 // Var for last orientation
@@ -37,5 +44,7 @@ walk_help = true;
 shootchk = 0;
 // Shoot rate
 shootrate = 5;
+// Secondary Weapon
+secondary_weapon = 0;
 
 hp = 30;

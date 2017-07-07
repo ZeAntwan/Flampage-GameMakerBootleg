@@ -94,18 +94,63 @@ if (!global.isCinematic) {
 			sprite_index = spr_player_run_t;
 		}
 		last_o = dirMoving;
-		
 	} else if (!isMoving) {
 		if (isAiming) last_o = dirAiming;
 		image_index = last_o;
 		sprite_index = spr_player_idle;
 	}
+	if (isDashing) {
+		if (last_o == 0) {
+			sprite_index = spr_player_dash_r;
+		}
+		else if (last_o == 1) {
+			sprite_index = spr_player_dash_b;
+		}
+		else if (last_o == 2) {
+			sprite_index = spr_player_dash_l;
+		}
+		else if (last_o == 3) {
+			sprite_index = spr_player_dash_t;
+		}	
+	}
+	// Dash
+	if (obj_input.kDash and timerDash == 0) {
+		if (isMoving) {
+			hspd = hspd*2;
+			vspd = vspd*2;
+		}
+		isDashing = true;
+		if (!audio_is_playing(snd_dash)) {
+			audio_play_sound(snd_dash,1,false);
+		}
+		alarm_set(1,.15*room_speed);
+	}
+	if (timerDash > 0) timerDash--;
 	
-	if (isMoving) {
+	//	// Dash Duration
+	//if (isDashing and timerDash < timeoutDash-(.5*room_speed)) {
+	//	isDashing = false;
+	//}	
+	//	// Timeout Dash
+	//if (timerDash <= 0) {
+	//	isDashing = false;
+	//	timerDash = timeoutDash;
+	//} else {
+	//	timerDash--
+	//}
+	
+	
+	if (isMoving and !isDashing) {
+		
+	
 	// Walking Audio
 		if (floor(image_index) == 4 or floor(image_index) == 13) {
 			if (walk_help) {
-				var pas = audio_play_sound(snd_walk,1,false)
+			var rnd = floor(random_range(1,3))
+			switch (rnd) {
+				case 1 : var pas = audio_play_sound(snd_walk_1,1,false)
+				case 2 : var pas = audio_play_sound(snd_walk_2,1,false)
+			}				
 				audio_sound_pitch(pas, random_range(.7,1.2));
 				walk_help = false;
 			}
@@ -147,14 +192,22 @@ if (!global.isCinematic) {
 	if (obj_input.kShoot) {
 		isShooting = true;
 		scr_shoot(obj_bullet,1,shootrate);
-	}
-	else
-	{
+	} else if (obj_input.kSecondaryShoot) {
+		if (secondary_weapon == 1) {
+			scr_shoot(obj_chou_bullet,8,6*shootrate);
+		} else if (secondary_weapon == 2) {
+			scr_shoot(obj_sniper_bullet,6,8*shootrate);
+		} else {
+			isShooting = false;
+			shootchk = 0;
+		}
+	} else {
 		isShooting = false;
+		shootchk = 0;
 	}
-	if (obj_input.kDash) {
-		scr_shoot(obj_bullet_heal,1,shootrate);
-	}
+	//if (obj_input.kDash) {
+	//	scr_shoot(obj_bullet_heal,1,shootrate);
+	//}
 
 } else {
 	isMoving = false;
@@ -162,8 +215,24 @@ if (!global.isCinematic) {
 	isAiming = false;
 }
 
+// Hurt Sound
+if(isAttacked and hp > 0 and !global.isCinematic) {
+	var rnd = floor(random_range(1,4))
+	switch (rnd) {
+		case 1 : audio_play_sound(snd_player_hurt_1,1,false);
+		case 2 : audio_play_sound(snd_player_hurt_2,1,false);
+		case 3 : audio_play_sound(snd_player_hurt_3,1,false);
+	}
+	isAttacked = false;
+}
+
+
+
+// Game Over
+
 if (hp <= 0) {
 	global.isCinematic = true;
+	sprite_index = spr_player_death;
 	global.gameState = 3;
 	if(alarm[0] == -1) alarm[0] = 6*room_speed;
 }

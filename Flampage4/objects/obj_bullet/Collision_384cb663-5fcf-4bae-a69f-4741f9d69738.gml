@@ -1,2 +1,2 @@
-/// @description Insert description here
+other.hp -= attack;
 instance_destroy();
