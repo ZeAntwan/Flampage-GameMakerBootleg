@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "08432fe0-8706-4f10-ab6d-1dab76927630",
+            "Value": {
+                "id": "5c6e1c05-3162-416a-9993-8d0dc356cad2",
+                "resourcePath": "objects\\obj_itemSpawn2\\obj_itemSpawn2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "08755972-9824-43d6-9b4c-74b60815735b",
             "Value": {
                 "id": "3cf0be6c-a78a-48f8-8128-436c35527a4e",
@@ -327,6 +335,14 @@
             }
         },
         {
+            "Key": "2118f298-2ee2-4746-9a46-cbf82a772da9",
+            "Value": {
+                "id": "b41eb477-b982-4686-8a7d-a46c2005f4fc",
+                "resourcePath": "objects\\obj_itemSpawn1\\obj_itemSpawn1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "22620360-3616-4fb1-a815-e2c5d612232c",
             "Value": {
                 "id": "0d9dd32a-7c6f-4ea4-adac-048058a48625",
@@ -484,6 +500,14 @@
                 "id": "7ff8bbb9-e38d-4ab5-8303-1d4c6e1cd108",
                 "resourcePath": "sounds\\snd_flan_hurt_p1_2\\snd_flan_hurt_p1_2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "413eedbc-c119-4fa0-bef2-b5e08246e587",
+            "Value": {
+                "id": "24fbba60-4b80-4b95-a37d-cf35d544c6bb",
+                "resourcePath": "views\\413eedbc-c119-4fa0-bef2-b5e08246e587.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -988,6 +1012,14 @@
                 "id": "bfb6672b-49af-4ad2-80f5-95d7f2d0c0f2",
                 "resourcePath": "views\\8629d5d7-73ba-4feb-a88c-4ccb3154b4bc.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "8845ad29-878f-4e0c-9631-5bb8acf9b9b4",
+            "Value": {
+                "id": "411d62bd-561d-4dc8-85d4-d89c229e11a7",
+                "resourcePath": "sprites\\spr_ammoSpawn_d\\spr_ammoSpawn_d.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

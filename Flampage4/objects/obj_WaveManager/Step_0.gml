@@ -1,4 +1,4 @@
-/// @description Wame Behavior
+/// @description Wave Behavior
 
 timer++;
 
@@ -81,24 +81,33 @@ if (is_array(w) and timer > w[line,2]*room_speed) {
 			line++
 	} else {
 		// Spawn Ammo
-		switch (setspawn) {
-				case 1: 
-					ammopoint = obj_ammoSpawn1;
-					break;
-				case 2: 
-					ammopoint = obj_ammoSpawn2;
-					break;
-				case 3: 
-					ammopoint = obj_ammoSpawn3;
-					break;
-				case 4: 
-					ammopoint = obj_ammoSpawn4;
-					break;
-			}
-		if (w[line,8] == 1 or w[line,8] == 2 or w[line,8] == 3) {
+		if (w[line,8] == 1) {
 			// Ammo
 			var _obj = obj_ammo;
+			switch (setspawn) {
+					case 1: 
+						ammopoint = obj_ammoSpawn1;
+						break;
+					case 2: 
+						ammopoint = obj_ammoSpawn2;
+						break;
+					case 3: 
+						ammopoint = obj_ammoSpawn3;
+						break;
+					case 4: 
+						ammopoint = obj_ammoSpawn4;
+						break;
+				}		
+		} else if (w[line,8] == 2) {
+			// Chou 
+			ammopoint = obj_itemSpawn1;
+			var _obj = obj_recette_chou;
+		} else if (w[line,8] == 2) {
+			// Sniper
+			ammopoint = obj_itemSpawn1;
+			var _obj = obj_recette_sniper;
 		} else if (w[line,8] == 4) {
+			ammopoint = obj_itemSpawn2;
 			var _obj = obj_life;
 		}
 		if (!ammoSpawned) {

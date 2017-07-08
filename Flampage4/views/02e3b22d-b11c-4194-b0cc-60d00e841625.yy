@@ -17,7 +17,9 @@
         "4a1c6b60-ae75-4740-9785-3ce5d8568d5b",
         "a18a6cdc-5f22-4def-a025-d5162dbfd4c4",
         "06c7e1ce-a918-4720-900d-8b2065c5576e",
-        "129d643e-1652-4770-9a6d-40447610281f"
+        "129d643e-1652-4770-9a6d-40447610281f",
+        "2118f298-2ee2-4746-9a46-cbf82a772da9",
+        "08432fe0-8706-4f10-ab6d-1dab76927630"
     ],
     "filterType": "GMObject",
     "folderName": "Spawn Points",

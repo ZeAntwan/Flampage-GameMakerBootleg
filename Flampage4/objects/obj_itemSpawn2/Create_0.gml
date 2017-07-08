@@ -1,3 +1,4 @@
 /// @description Insert description here
-alarm[0] = 0;
 
+timer = room_speed * 5;
+_timer = timer
