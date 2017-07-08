@@ -46,35 +46,37 @@ if (isShooting) {
 		draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,rot,c_white,1);
 	}
 } else {
-	if (!isAiming and !isDashing) {
-		if (last_o == 0)
-			{
-				draw_sprite_ext(spr_player_run_r_arm,image_index,x,y-25,1,1,0,c_white,1);
-			}
-			else if (last_o == 1)
-			{
-				draw_sprite_ext(spr_player_run_b_arm,image_index,x,y,1,1,0,c_white,1);
-			}
-			else if (last_o == 2)
-			{
-				draw_sprite_ext(spr_player_run_l_arm,image_index,x,y-25,1,1,0,c_white,1);
-			}
-		} else if (isAiming and !isDashing) {
-			shootanim = 0;	
+	if (hp > 0) {
+		if (!isAiming and !isDashing) {
 			if (last_o == 0)
-			{
-				draw_sprite_ext(spr_player_aim_r,shootanim,x,y-25,1,1,rot,c_white,1);
-			}
-			else if (last_o == 1)
-			{
-				draw_sprite_ext(spr_player_aim_b,shootanim,x,y,1,1,0,c_white,1);
-			}
-			else if (last_o == 2)
-			{
-				if (isAiming) rot -= 180
-				draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,rot,c_white,1);
-			}
-		}	
+				{
+					draw_sprite_ext(spr_player_run_r_arm,image_index,x,y-25,1,1,0,c_white,1);
+				}
+				else if (last_o == 1)
+				{
+					draw_sprite_ext(spr_player_run_b_arm,image_index,x,y,1,1,0,c_white,1);
+				}
+				else if (last_o == 2)
+				{
+					draw_sprite_ext(spr_player_run_l_arm,image_index,x,y-25,1,1,0,c_white,1);
+				}
+		} else if (isAiming and !isDashing) {
+				shootanim = 0;	
+				if (last_o == 0)
+				{
+					draw_sprite_ext(spr_player_aim_r,shootanim,x,y-25,1,1,rot,c_white,1);
+				}
+				else if (last_o == 1)
+				{
+					draw_sprite_ext(spr_player_aim_b,shootanim,x,y,1,1,0,c_white,1);
+				}
+				else if (last_o == 2)
+				{
+					if (isAiming) rot -= 180
+					draw_sprite_ext(spr_player_aim_l,shootanim,x,y-25,1,1,rot,c_white,1);
+				}
+		}
+	}	
 }
 
 if (global.isCinematic and hp <= 0) {

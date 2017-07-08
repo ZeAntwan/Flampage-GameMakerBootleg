@@ -123,22 +123,9 @@ if (!global.isCinematic) {
 		if (!audio_is_playing(snd_dash)) {
 			audio_play_sound(snd_dash,1,false);
 		}
-		alarm_set(1,.15*room_speed);
+		alarm[1] = .15*room_speed;
 	}
 	if (timerDash > 0) timerDash--;
-	
-	//	// Dash Duration
-	//if (isDashing and timerDash < timeoutDash-(.5*room_speed)) {
-	//	isDashing = false;
-	//}	
-	//	// Timeout Dash
-	//if (timerDash <= 0) {
-	//	isDashing = false;
-	//	timerDash = timeoutDash;
-	//} else {
-	//	timerDash--
-	//}
-	
 	
 	if (isMoving and !isDashing) {
 		

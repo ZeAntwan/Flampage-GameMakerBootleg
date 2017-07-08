@@ -1,2 +1,5 @@
 /// @description Bullet Hurt and Destroy
-target = obj_player_1;
+if (!isFocus) {
+	target = obj_player_1;
+}
+target_timer = 0;

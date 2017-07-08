@@ -1,11 +1,14 @@
 /// @description Gui Elements
 var gborder = 20;
-//var gw = display_get_gui_width() - gborder;
-//var gh = display_get_gui_height() - gborder;
-var gw = window_get_width() - gborder;
-var gh = window_get_height() - gborder;
+//gw = display_get_gui_width() - gborder;
+//gh = display_get_gui_height() - gborder;
+ var gw = window_get_width() - gborder;
+ var gh = window_get_height() - gborder;
 
-if (global.gameState > 0 && global.gameState < 3) { 
+//display_set_gui_size(window_get_width(),window_get_height());
+display_set_gui_maximise();
+
+if ((global.gameState > 0 && global.gameState < 3) or global.gameState == 6) { 
 	// Player HUD
 	
 	// Flan bar
@@ -13,7 +16,7 @@ if (global.gameState > 0 && global.gameState < 3) {
 	draw_sprite_ext(spr_levelcolere,_ragelvl,gborder + 100, gborder+75,.5,.5,0,c_white,1);
 	
 	// Flan Head
-	var _ragestate = (global.rageState-1)*3+2*obj_flan.isHealing+obj_flan.isAttacked
+	var _ragestate = (global.rageState-1)*3+obj_flan.lastState
 	draw_sprite_ext(spr_flanhead,_ragestate,gborder + 100, gborder+75,.5,.5,0,c_white,1);
 	
 	// Health Bar
@@ -22,6 +25,9 @@ if (global.gameState > 0 && global.gameState < 3) {
 	
 	// Ammo Pak
 	draw_sprite_ext(spr_ammopak,global.chargeurs,gw-(205),gh-(70),.7,.7,0,c_white,1);
+	
+	// Secondary Weapon
+	draw_sprite_ext(spr_secondary,obj_player_1.secondary_weapon,gw-(195),gh-(120),.7,.7,0,c_white,1);
 	
 	// Ammobar
 	var ammoleft = clamp((((100-global.ammo)/100)*50),0,49);
@@ -57,19 +63,20 @@ if (global.gameState > 0 && global.gameState < 3) {
 	} else if (showPhase) {
 		timer++;
 	}
+	if (instance_exists(obj_WaveManager)) {
+		if (global.waveLevel != lastWaveLevel or showPhase) {
+			draw_sprite_ext(spr_phase,global.waveLevel-1,gw/2,gh/4,1,1,0,c_white,1)
+			showPhase = true;
+		}
 
-	if (global.waveLevel != lastWaveLevel or showPhase) {
-		draw_sprite_ext(spr_phase,global.waveLevel-1,gw/2,gh/2,1,1,0,c_white,1)
-		showPhase = true;
+		lastWaveLevel = global.waveLevel
 	}
-
-	lastWaveLevel = global.waveLevel
-
 } else {
-	
+	show_phase = false;
 }
 
-if (global.rageState == 4) {
-	draw_sprite_ext(spr_gameover,0,gw/2,gh/2,.5,.5,0,c_white,1)
+// Game Over
+if (global.gameState == 3) {
+	draw_sprite_ext(spr_gameover,0,gw/2,(gh/4)*3,.5,.5,0,c_white,1)
 }
 

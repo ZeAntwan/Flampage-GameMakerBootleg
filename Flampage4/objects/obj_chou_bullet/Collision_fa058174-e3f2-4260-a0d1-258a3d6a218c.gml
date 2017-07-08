@@ -1,3 +1,3 @@
 /// @description Insert description here
-alarm[0] = 0;
+alarm[0] = 1;
 

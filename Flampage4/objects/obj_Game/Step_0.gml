@@ -2,7 +2,8 @@
 
 Singleton();
 
-/// DEBUG
+/// DEBUG 
+/*
 rm_next = keyboard_check_pressed(ord("Y"));
 rm_prev = keyboard_check_pressed(ord("T"));
 cinematic = keyboard_check_pressed(ord("C"));
@@ -32,7 +33,7 @@ if(played) {
 	global.Played = !global.Played;
 }
 
-
+*/
 // Quit the game
 if (obj_input.kEsc) {
 	game_end();

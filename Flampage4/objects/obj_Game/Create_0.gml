@@ -23,3 +23,6 @@ global.isCinematic = false;
 
 // Font Color
 col = make_colour_rgb(90, 50, 35);
+col2 = make_colour_rgb(70, 30, 5);
+
+window_set_color(col2);
