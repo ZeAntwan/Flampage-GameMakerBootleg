@@ -3,9 +3,10 @@
 ////////////////////////////////////////////////// MOVEMENT
 //If Player is Allowed to move
 if (!global.isCinematic) {
-
-	hspd = obj_input.haxis*spd;
-	vspd = obj_input.vaxis*spd;
+	if (!isDashing) {
+		hspd = obj_input.haxis*spd;
+		vspd = obj_input.vaxis*spd;
+	}
 	//isMoving
 	if (hspd !=0 or vspd != 0) isMoving = true else isMoving = false;
 
@@ -45,8 +46,13 @@ if (!global.isCinematic) {
 	// 1 : BOTTOM
 	// 2 : LEFT
 	// 3 : TOP
-
-	aimpoint = point_direction(x, y, x+obj_input.haim, y+obj_input.vaim); // Direction de la visée en degré
+	
+	// Keyboard or Gamepad check
+	if (obj_input.isGamepad) {
+		aimpoint = point_direction(x, y, x+obj_input.haim, y+obj_input.vaim); // Direction de la visée en degré
+	} else {
+		aimpoint = point_direction(x, y, obj_input.haim, obj_input.vaim);
+	}
 	if(aimpoint<45 or aimpoint>315) {
 	//Right Direction
 		dirAiming = 0;
@@ -114,18 +120,18 @@ if (!global.isCinematic) {
 		}	
 	}
 	// Dash
-	if (obj_input.kDash and timerDash == 0) {
+	if (obj_input.kDash and timerDash == 0 and !isDashing) {
 		if (isMoving) {
-			hspd = hspd*2;
-			vspd = vspd*2;
+			hspd = hspd*3;
+			vspd = vspd*3;
 		}
-		isDashing = true;
 		if (!audio_is_playing(snd_dash)) {
 			audio_play_sound(snd_dash,1,false);
 		}
 		alarm[1] = .15*room_speed;
+		isDashing = true;
 	}
-	if (timerDash > 0) timerDash--;
+	if (!isDashing and timerDash > 0) timerDash--;
 	
 	if (isMoving and !isDashing) {
 		

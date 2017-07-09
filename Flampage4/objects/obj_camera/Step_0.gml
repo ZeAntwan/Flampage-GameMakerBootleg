@@ -18,8 +18,19 @@ if (global.gameState != 0 && global.gameState != 5) {
 				}
 				else if ((obj_player_1.isMoving && obj_player_1.isAiming) || (!obj_player_1.isMoving && obj_player_1.isAiming)) {
 				// If player is Moving and Aiming OR is Aiming Only
-					nextcam_x = (obj_player_1.x + obj_input.haim*((cam_w/4)-marginCam));
-					nextcam_y = (obj_player_1.y + obj_input.vaim*((cam_h/4)-marginCam/2));
+					if (obj_input.isGamepad) {
+						nextcam_x = (obj_player_1.x + obj_input.haim*((cam_w/4)-marginCam));
+						nextcam_y = (obj_player_1.y + obj_input.vaim*((cam_h/4)-marginCam/2));
+					} else {
+						var dist_aim_x = lengthdir_x((distance_to_point(obj_player_1.x,obj_input.haim)),direction);
+						var dist_aim_y = lengthdir_x((distance_to_point(obj_player_1.x,obj_input.vaim)),direction);
+						//if (obj_input.haim < obj_player_1.x) {dist_aim_x = -dist_aim_x};
+						//if (obj_input.vaim<obj_player_1.y) {dist_aim_y = -dist_aim_y};
+						//nextcam_x = (obj_player_1.x + dist_aim_x/2);
+						//nextcam_y = (obj_player_1.y + dist_aim_y/2);
+						nextcam_x = (mean(obj_player_1.x,obj_input.haim));
+						nextcam_y = (mean(obj_player_1.y,obj_input.vaim));
+					}
 				} 
 				else if (!obj_player_1.isMoving && !obj_player_1.isAiming) {
 				// If player is Idling
