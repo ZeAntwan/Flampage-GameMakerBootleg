@@ -320,7 +320,7 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_30EBA2DC",
-                    "x": 608,
+                    "x": 992,
                     "y": 608,
                     "IsDnD": false,
                     "colour": {
