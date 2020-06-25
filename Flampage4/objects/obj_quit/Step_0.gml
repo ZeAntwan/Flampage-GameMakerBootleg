@@ -1,3 +1,7 @@
+if (!browser_not_a_browser) {
+	instance_destroy()
+}
+
 if (loadup > 0) {
 	loadup -= 1/(room_speed/2);
 }

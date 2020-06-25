@@ -3,6 +3,7 @@
 
 // Controller
 if (gamepad_is_connected(0)) {
+	gamepad_set_axis_deadzone(0,.05)
 	isGamepad = true;
 	//Left Stick
 	haxis = gamepad_axis_value(0, gp_axislh);
